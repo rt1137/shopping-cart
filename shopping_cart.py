@@ -1,4 +1,4 @@
-print("HELLO")
+# shopping_cart.py
 
 products = [
     {"id":1, "name": "Chocolate Sandwich Cookies", "department": "snacks", "aisle": "cookies cakes", "price": 3.50},
@@ -21,7 +21,26 @@ products = [
     {"id":18, "name": "Pizza for One Suprema Frozen Pizza", "department": "frozen", "aisle": "frozen pizza", "price": 12.50},
     {"id":19, "name": "Gluten Free Quinoa Three Cheese & Mushroom Blend", "department": "dry goods pasta", "aisle": "grains rice dried goods", "price": 3.99},
     {"id":20, "name": "Pomegranate Cranberry & Aloe Vera Enrich Drink", "department": "beverages", "aisle": "juice nectars", "price": 4.25}
+] # based on data from Instacart: https://www.instacart.com/datasets/grocery-shopping-2017
 
+
+
+#
+# INFO CAPTURE / INPUT
+#
+
+selected_id = input("Please input a product identifier: ")  #> "9" (string)
+print(selected_id)
+print(type(selected_id))
+
+
+
+
+
+
+
+#INFO DISPLAY/OUTPUT
+#
 
 # A grocery store name of your choice
 #A grocery store phone number and/or website URL and/or address of choice
@@ -31,3 +50,6 @@ products = [
 #The amount of tax owed (e.g. $1.70), calculated by multiplying the total cost by a New York City sales tax rate of 8.75% (for the purposes of this project, groceries are not exempt from sales tax)
 #The total amount owed, formatted as US dollars and cents (e.g. $21.17), calculated by adding together the amount of tax owed plus the total cost of all shopping cart items
 #A friendly message thanking the customer and/or encouraging the customer to shop again
+
+
+# 17:06
