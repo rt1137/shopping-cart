@@ -29,13 +29,17 @@ products = [
 # INFO CAPTURE / INPUT
 #
 
-selected_id = input("Please input a product identifier: ")  #> "9" (string)
 
-# use list comprehension
+while True: 
+    selected_id = input("Please input a product identifier: ")  #> "9" (string)
+    #> "DONE"
+    if selected_id == "DONE":
+        break
+    else:
+        matching_products = [p for p in products if str(p["id"]) == str(selected_id)]
+        matching_product = matching_products[0]
+        print("SELECTED PRODUCT: " + matching_product["name"] + " " + str(matching_product["price"]))
 
-matching_products = [p for p in products if str(p["id"]) == str(selected_id)]
-matching_product = matching_products[0]
-print("SELECTED PRODUCT: " + matching_product["name"] + " " + str(matching_product["price"]))
 
 
 
@@ -47,6 +51,13 @@ print("SELECTED PRODUCT: " + matching_product["name"] + " " + str(matching_produ
 
 #INFO DISPLAY/OUTPUT
 #
+
+
+selected_id = input("Please input a product identifier: ")  #> "9" (string)
+matching_products = [p for p in products if str(p["id"]) == str(selected_id)]
+matching_product = matching_products[0]
+print("SELECTED PRODUCT: " + matching_product["name"] + " " + str(matching_product["price"]))
+
 
 # A grocery store name of your choice
 #A grocery store phone number and/or website URL and/or address of choice
