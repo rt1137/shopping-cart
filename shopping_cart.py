@@ -1,4 +1,6 @@
 # shopping_cart.py
+from datetime import datetime
+
 
 products = [
     {"id":1, "name": "Chocolate Sandwich Cookies", "department": "snacks", "aisle": "cookies cakes", "price": 3.50},
@@ -23,6 +25,18 @@ products = [
     {"id":20, "name": "Pomegranate Cranberry & Aloe Vera Enrich Drink", "department": "beverages", "aisle": "juice nectars", "price": 4.25}
 ] # based on data from Instacart: https://www.instacart.com/datasets/grocery-shopping-2017
 
+def to_usd(my_price):
+    """
+    Converts a numeric value to usd-formatted string, for printing and display purposes.
+
+    Param: my_price (int or float) like 4000.444444
+
+    Example: to_usd(4000.444444)
+
+    Returns: $4,000.44
+    """
+    return f"${my_price:,.2f}" #> $12,000.71
+
 
 
 #
@@ -32,9 +46,10 @@ products = [
 selected_id = input("Please input a product identifier: ")  #> "9" (string)
 matching_products = [p for p in products if str(p["id"]) == str(selected_id)]
 matching_product = matching_products[0]
-print("SELECTED PRODUCT: " + matching_product["name"] + " " + str(matching_product["price"]))
+#print("SELECTED PRODUCT: " + matching_product["name"] + " " + str(matching_product["price"]))
 
 total_price = 0
+selected_ids =[]
 
 while True: 
     selected_id = input("Please input a product identifier: ")  #> "9" (string)
@@ -44,13 +59,50 @@ while True:
     else:
         matching_products = [p for p in products if str(p["id"]) == str(selected_id)]
         matching_product = matching_products[0]
+        #print("SELECTED PRODUCT: " + matching_product["name"] + " " + str(matching_product["price"]))
+
+        #matching_products = [p for p in products if str(p["id"]) == str(selected_id)]
+        #matching_product = matching_products[0]
+        #total_price = total_price + matching_product["price"]
+        #print("SELECTED PRODUCT: " + matching_product["name"] + " " + str(matching_product["price"]))
+        selected_ids.append(selected_id)
+
+
+# print(selected_ids)
+
+for selected_id in selected_ids:
+        matching_products = [p for p in products if str(p["id"]) == str(selected_id)]
+        matching_product = matching_products[0]
         total_price = total_price + matching_product["price"]
-        print("SELECTED PRODUCT: " + matching_product["name"] + " " + str(matching_product["price"]))
+        #print("SELECTED PRODUCT: " + matching_product["name"] + " " + str(matching_product["price"]))
+
+print("---------------------------------")
+
+print("REGINA'S FOOD BAZAAR")
+print("WWWW.REGINAS-FOOD-BAZAAR.COM")
+
+print("---------------------------------")
 
 
+print("CHECKOUT AT: " + datetime.today().strftime("%Y-%m-%d %H:%M %p"))
 
-print("TOTAL PRICE: " + str(total_price))
+print("---------------------------------")
+print("SELECTED PRODUCTS:")
 
+print("---------------------------------")
+print("SUBTOTAL: " + to_usd(total_price))
+
+tax=total_price*.0875
+
+
+print("TAX: " + to_usd(tax))
+
+total=total_price+tax 
+print("TOTAL: " + to_usd(total))
+
+print("---------------------------------")
+print("THANKS, SEE YOU AGAIN SOON!")
+print("---------------------------------")
 
 
 # A grocery store name of your choice
