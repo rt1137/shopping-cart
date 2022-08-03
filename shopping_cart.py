@@ -56,9 +56,13 @@ while True:
     #> "DONE"
     if selected_id == "DONE":
         break
+    elif int(selected_id) < 1 or int(selected_id) > 20:
+        print("*** PLEASE TRY ANOTHER ID ***")
+
+    
     else:
         matching_products = [p for p in products if str(p["id"]) == str(selected_id)]
-        matching_product = matching_products[0]
+        #matching_product = matching_products[0]
         #print("SELECTED PRODUCT: " + matching_product["name"] + " " + str(matching_product["price"]))
 
         #matching_products = [p for p in products if str(p["id"]) == str(selected_id)]
@@ -70,16 +74,19 @@ while True:
 
 # print(selected_ids)
 
-for selected_id in selected_ids:
-        matching_products = [p for p in products if str(p["id"]) == str(selected_id)]
-        matching_product = matching_products[0]
-        total_price = total_price + matching_product["price"]
-        #print("SELECTED PRODUCT: " + matching_product["name"] + " " + str(matching_product["price"]))
+#for selected_id in selected_ids:
+matching_products = [p for p in products if str(p["id"]) in selected_ids]
+#matching_product = matching_products[0]
+
+for matching_product in matching_products:
+
+    total_price = total_price + matching_product["price"]
+    #print("SELECTED PRODUCT: " + matching_product["name"] + " " + str(matching_product["price"]))
 
 print("---------------------------------")
 
-print("REGINA'S FOOD BAZAAR")
-print("WWWW.REGINAS-FOOD-BAZAAR.COM")
+print("~ REGINA'S FOOD BAZAAR ~ ")
+print(" WWWW.REGINAS-FOOD-BAZAAR.COM ")
 
 print("---------------------------------")
 
@@ -88,6 +95,10 @@ print("CHECKOUT AT: " + datetime.today().strftime("%Y-%m-%d %H:%M %p"))
 
 print("---------------------------------")
 print("SELECTED PRODUCTS:")
+
+
+for matching_product in matching_products:
+    print("..." , matching_product["name"] , "($", matching_product["price"] , ")")
 
 print("---------------------------------")
 print("SUBTOTAL: " + to_usd(total_price))
